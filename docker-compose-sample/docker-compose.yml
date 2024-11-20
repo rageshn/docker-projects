@@ -1,0 +1,12 @@
+services:
+    redis-container:
+        image: 'redis'
+    fastapi:
+        build: ./redis-test/
+        ports:
+            - "8081:8081"
+        depends_on:
+            - redis-container
+        #build:
+        #    context: ./redis-test
+        #    dockerfile: Dockerfile
